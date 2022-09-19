@@ -5,6 +5,11 @@ To build the project run:
 > sbt compile
 ```
 
+To run tests use:
+```
+> sbt test
+```
+
 To run/start the project use:
 ```
 > sbt run
