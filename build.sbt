@@ -1,8 +1,7 @@
-val Http4sVersion = "0.23.15"
-val MunitVersion = "0.7.29"
-val LogbackVersion = "1.2.6"
-val MunitCatsEffectVersion = "1.0.7"
 val CirceVersion = "0.14.3"
+val Http4sVersion = "0.23.15"
+val LogbackVersion = "1.2.6"
+val WeaverVersion = "0.8.0"
 
 lazy val root = (project in file("."))
   .settings(
@@ -17,7 +16,7 @@ lazy val root = (project in file("."))
       "org.http4s" %% "http4s-dsl" % Http4sVersion,
       "io.circe" %% "circe-parser" % CirceVersion,
       "io.circe" %% "circe-generic" % CirceVersion,
-      "com.disneystreaming" %% "weaver-cats" % "0.8.0" % Test,
+      "com.disneystreaming" %% "weaver-cats" % WeaverVersion % Test,
       "ch.qos.logback" % "logback-classic" % LogbackVersion
     ),
     testFrameworks += new TestFramework("weaver.framework.CatsEffect")

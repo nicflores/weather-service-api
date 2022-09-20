@@ -1,19 +1,17 @@
 package com.wsa.weatherserviceapi
 
-import cats.syntax.all._
 import cats.effect.Concurrent
 import cats.effect.IO
-
-import org.http4s.Uri
+import cats.syntax.all._
 import org.http4s.Method
-import org.http4s.Status
 import org.http4s.Request
-import org.http4s.client.Client
+import org.http4s.Status
+import org.http4s.Uri
+import org.http4s.circe.CirceEntityCodec.circeEntityDecoder
 import org.http4s.circe.decodeUri
 import org.http4s.circe.jsonOf
+import org.http4s.client.Client
 import org.http4s.syntax.literals.uri
-
-import org.http4s.circe.CirceEntityCodec.circeEntityDecoder
 
 trait NWService[F[_]]:
   def getLocationProperties(

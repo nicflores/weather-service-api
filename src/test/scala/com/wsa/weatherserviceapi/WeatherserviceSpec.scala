@@ -6,8 +6,8 @@ import org.http4s._
 import org.http4s.client.Client
 import org.http4s.ember.client.EmberClientBuilder
 import org.http4s.implicits._
-import weaver.SimpleIOSuite
 import weaver.Expectations
+import weaver.SimpleIOSuite
 
 object WeatherserviceSpec extends SimpleIOSuite {
 

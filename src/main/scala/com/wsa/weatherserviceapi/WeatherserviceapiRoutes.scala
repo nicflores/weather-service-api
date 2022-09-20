@@ -1,9 +1,8 @@
 package com.wsa.weatherserviceapi
 
-import cats.implicits._
-import cats.effect.Sync
-
 import cats.Monad
+import cats.effect.Sync
+import cats.implicits._
 import org.http4s.HttpRoutes
 import org.http4s.dsl.Http4sDsl
 import org.http4s.server.Router

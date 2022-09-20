@@ -1,26 +1,23 @@
 package com.wsa
 
-import cats.syntax.all._
 import cats.effect.Concurrent
-
-import io.circe.HCursor
+import cats.syntax.all._
 import io.circe.Decoder
 import io.circe.Encoder
-import io.circe.Json
 import io.circe.HCursor
-
-import org.http4s.Uri
-import org.http4s.Method
-import org.http4s.Status
-import org.http4s.Request
-import org.http4s.EntityEncoder
+import io.circe.Json
 import org.http4s.EntityDecoder
-import org.http4s.client.Client
+import org.http4s.EntityEncoder
+import org.http4s.Method
+import org.http4s.Request
+import org.http4s.Status
+import org.http4s.Uri
 import org.http4s.circe.decodeUri
-import org.http4s.circe.jsonOf
 import org.http4s.circe.jsonEncoderOf
-import org.http4s.syntax._
+import org.http4s.circe.jsonOf
+import org.http4s.client.Client
 import org.http4s.implicits._
+import org.http4s.syntax._
 
 package object weatherserviceapi:
 

@@ -1,15 +1,15 @@
 package com.wsa.weatherserviceapi
 
-import cats.effect.{Async, Resource}
+import cats.effect.Async
+import cats.effect.Resource
 import cats.syntax.all._
 import com.comcast.ip4s._
+import com.wsa.weatherserviceapi.NWService
 import fs2.Stream
 import org.http4s.ember.client.EmberClientBuilder
 import org.http4s.ember.server.EmberServerBuilder
 import org.http4s.implicits._
 import org.http4s.server.middleware.Logger
-
-import com.wsa.weatherserviceapi.NWService
 
 object WeatherserviceapiServer:
   def stream[F[_]: Async]: Stream[F, Nothing] = {
