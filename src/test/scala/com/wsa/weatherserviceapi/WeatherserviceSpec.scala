@@ -33,7 +33,7 @@ object WeatherserviceSpec extends SimpleIOSuite {
           Client.fromHttpApp(WeatherserviceapiRoutes[IO](nws).routes.orNotFound)
         wClient
           .run(Request[IO](Method.GET, uri"/weather" / "77.6177,42.4944"))
-          .use(resp => IO.pure(expect.same(resp.status, Status.BadRequest)))
+          .use(resp => IO.pure(expect.same(resp.status, Status.NotFound)))
       }
     }
   }
