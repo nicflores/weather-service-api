@@ -9,7 +9,6 @@ import org.http4s.server.Router
 
 final case class WeatherserviceapiRoutes[F[_]: Monad](nws: NWService[F])
     extends Http4sDsl[F]:
-  val prefixPath = "/weather"
   val httpRoutes: HttpRoutes[F] = HttpRoutes.of[F] {
     case GET -> Root / Extractor(loc) =>
       nws.getLocationProperties(loc.lat, loc.lon).flatMap {
@@ -21,4 +20,6 @@ final case class WeatherserviceapiRoutes[F[_]: Monad](nws: NWService[F])
         case Left(e) => NotFound(e)
       }
   }
-  val routes: HttpRoutes[F] = Router(prefixPath -> httpRoutes)
+  val routes: HttpRoutes[F] = Router(
+    "/weather" -> httpRoutes
+  )
