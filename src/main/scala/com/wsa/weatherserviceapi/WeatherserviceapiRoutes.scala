@@ -17,9 +17,9 @@ final case class WeatherserviceapiRoutes[F[_]: Monad](nws: NWService[F])
         case Right(nwsp) =>
           nws.getTodaysWeather(nwsp.url).flatMap {
             case Right(wf) => Ok(wf)
-            case Left(e)   => BadRequest(e)
+            case Left(e)   => NotFound(e)
           }
-        case Left(e) => BadRequest(e)
+        case Left(e) => NotFound(e)
       }
   }
   val routes: HttpRoutes[F] = Router(prefixPath -> httpRoutes)

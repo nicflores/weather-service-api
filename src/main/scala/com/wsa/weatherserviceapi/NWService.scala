@@ -19,7 +19,7 @@ trait NWService[F[_]]:
   def getLocationProperties(
       lat: Double,
       lon: Double
-  ): F[Either[String, NWSProperties]]
+  ): F[Either[NWSError, NWSProperties]]
   def getTodaysWeather(url: Uri): F[Either[NWSError, WeatherForcast]]
 
 object NWService:
@@ -28,11 +28,11 @@ object NWService:
       override def getLocationProperties(
           lat: Double,
           lon: Double
-      ): F[Either[String, NWSProperties]] =
+      ): F[Either[NWSError, NWSProperties]] =
         client.run(Request(Method.GET, nwsPointsUrl / s"$lat,$lon")).use { r =>
           r.status match {
             case Status.Ok => r.as[NWSProperties].map(_.asRight)
-            case _         => r.as[String].map(_.asLeft)
+            case _         => r.as[NWSError].map(_.asLeft)
           }
         }
 

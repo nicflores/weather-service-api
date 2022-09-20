@@ -17,9 +17,8 @@ lazy val root = (project in file("."))
       "org.http4s" %% "http4s-dsl" % Http4sVersion,
       "io.circe" %% "circe-parser" % CirceVersion,
       "io.circe" %% "circe-generic" % CirceVersion,
-      "org.typelevel" %% "munit-cats-effect-3" % MunitCatsEffectVersion % Test,
+      "com.disneystreaming" %% "weaver-cats" % "0.8.0" % Test,
       "ch.qos.logback" % "logback-classic" % LogbackVersion
     ),
-    // testFrameworks += new TestFramework("weaver.framework.CatsEffect")
-    testFrameworks += new TestFramework("munit.Framework")
+    testFrameworks += new TestFramework("weaver.framework.CatsEffect")
   )
