@@ -21,6 +21,22 @@ object WeatherserviceSpec extends SimpleIOSuite {
     )
   }
 
+  test("Valid location with more than 4 decimal digits places returns 200") {
+    checkWeatherApiStatus(
+      eClient,
+      uri"/weather" / "40.748412,-73.985621",
+      Status.Ok
+    )
+  }
+
+  test("Invalid location returns 404") {
+    checkWeatherApiStatus(
+      eClient,
+      uri"/weather" / "40.7484,aabb",
+      Status.NotFound
+    )
+  }
+
   test("Non supported locations returns 404") {
     checkWeatherApiStatus(
       eClient,
